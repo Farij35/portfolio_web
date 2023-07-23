@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Latihan</title>
+
+    <style>
+        nav img {
+            width: 50px;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+            font-family: Arial, sans-serif;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+        }
+
+        nav ul {
+            display: flex;
+            justify-content: flex-end;
+
+        }
+
+        nav ul li {
+            list-style-type: none;
+            padding: 0 .5em;
+        }
+
+        nav ul li a {
+            text-decoration: none;
+            color: #f0f0f0;
+        }
+
+        #content-2, #content-3, #content-4 {
+            min-height: 100vh;
+            padding-top: 50px;
+        }
+
+        /* #content-1 {
+            background-color: greenyellow;
+        } */
+        #content-2 {
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: left;
+            align-items: center;
+            height: 100vh;
+            flex-direction:row;
+        }
+        #content-3 {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 90vh;
+            flex-direction: column;
+        }
+        #content-4 {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f0f0f0;
+        }
+        #content-5 {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            height: 90vh;
+            background-color: white;
+        }
+
+
+        .content-wrapper {
+            padding-top: 60px; /* Sesuaikan padding-top dengan tinggi navbar agar konten tidak tertutup */
+        }
+
+        .jumbotron {
+            background-color: #f0f0f0;
+            padding: 40px;
+            text-align: left;
+            position: relative;
+            height: 90vh; /* Tinggi jumbotron akan memenuhi tinggi layar */
+            display: flex;
+            align-items: left;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .text-container {
+            flex: 1; /* Mengisi sisa ruang dengan teks sehingga gambar akan berada di sebelah kanan */
+        }
+
+        .text-container h1 {
+            font-size: 36px;
+            margin-bottom: 20px;
+        }
+
+        .text-container p {
+            font-size: 18px;
+        }
+
+        .image-container {
+            flex: 1; /* Mengisi sisa ruang dengan gambar sehingga berada di sebelah kanan */
+            display: flex;
+            justify-content: flex-end; /* Mengatur agar gambar berada di kanan */
+            align-items: center; /* Mengatur gambar berada di tengah-tengah vertikal */
+        }
+
+        .image-container img {
+            max-width: 30%;
+            height: auto;
+        }
+
+        .experience-container {
+            display: flex;
+            flex-wrap: wrap;
+            max-width: 600px;
+            justify-content: flex-end;
+        }
+
+        .experience-title {
+            font-size: 36px;
+            margin-bottom: 20px;
+            padding-left: 40px;
+            padding-right: 40px;
+        }
+
+        .experience-template {
+            flex: 0 0 calc(50% - 10px);
+            border: 2px solid #ccc;
+            padding: 20px;
+            margin: 5px;
+            text-align: left;
+        }
+
+        .experience-template h2 {
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+
+        .experience-template p {
+            margin: 0;
+        }
+
+        .education-title {
+            font-size: 36px;
+            margin-bottom: 20px;
+            padding-bottom: 100px;
+        }
+
+        .education-container {
+            display: flex;
+            justify-content: space-between;
+            max-width: 900px;
+            justify-content: center;
+        }
+
+        .education-template {
+            flex: 0 0 calc(33.33% - 20px);
+            border: 2px solid #ccc;
+            padding: 20px;
+            margin: 5px;
+            text-align: center;
+        }
+
+        .education-template h2 {
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+
+        .education-template p {
+            margin: 0;
+        }
+
+        .interest-title {
+            padding-top: 60px;
+            font-size: 24px;
+            margin-bottom: 20px;
+            padding-bottom: 0px;
+            text-align: center;
+        }
+
+        .interest-image-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .interest-image-container img {
+            max-width: 100%;
+            max-height: 100%;
+        }
+
+        .awards-title {
+            padding-top: 60px;
+            font-size: 24px;
+            margin-bottom: 20px;
+            padding-bottom: 0px;
+            text-align: center;
+        }
+
+        .awards-image-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .awards-image-container img {
+            max-width: 100%;
+            max-height: 100%;
+        }
+
+        h3 {
+            font-size: 18px;
+            margin: 0;
+        }
+
+        p {
+            font-size: 14px;
+            color: #555555;
+        }
+
+        header, footer {
+            background-color: rgb(66, 66, 66);
+        }
+
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            background-color: rgb(66, 66, 66);
+            padding: 10px 20px;
+            z-index: 999;
+        }
+
+        footer {
+            margin-top: auto;
+            padding: .5em;
+            text-align: center;
+            color: white;
+        }
+    </style>
+
+</head>
+<body>
+    <header>
+        <nav>
+            <img src="Assets/f-removebg-preview.png" alt="Gambar Logo" />
+
+            <ul>
+                <li><a href="#content-1">Tentang</a></li>
+                <li><a href="#content-2">Pengalaman</a></li>
+                <li><a href="#content-3">Pendidikan</a></li>
+                <li><a href="#content-4">Kegemaran</a></li>
+                <li><a href="#content-5">Penghargaan</a></li>
+            </ul>
+
+        </nav>
+    </header>
+
+
+    <div class="content-wrapper">
+        <section id="content-1">
+            <div class="jumbotron">
+                <div class="text-container">
+                    <h1>Selamat Datang!</h1>
+                    <p>Nama saya Farij Altafsyah. Saya seorang yang memiliki minat tinggi di bidang pemrograman web dan mobile.</p>
+                </div>
+                <div class="image-container">
+                    <img src="Assets/WhatsApp_Image_2023-05-16_at_14.40.30-removebg-preview.png" alt="Gambar Anda">
+                </div>
+            </div>
+        </section>
+
+        <section id="content-2">
+            <h1 class="experience-title">Pengalaman Saya</h1>
+
+            <div class="experience-container">
+                <div class="experience-template">
+                    <h2>Kursus Pemrograman Mobile Dengan Flutter</h2>
+                    <p>Belajar membuat aplikasi mobile multi-platform dengan Flutter</p>
+                </div>
+        
+                <div class="experience-template">
+                    <h2>Kursus Pemrograman Android Dengan Kotlin</h2>
+                    <p>Belajar membuat aplikasi Android dengan Kotlin</p>
+                </div>
+            </div>
+        </section>
+        <section id="content-3">
+            <h1 class="education-title">Pendidikan Saya</h1>
+
+            <div class="education-container">
+                <div class="education-template">
+                    <h2>SD Negeri Buaran 1</h2>
+                    <p>2007-2013</p>
+                </div>
+
+                <div class="education-template">
+                    <h2>SMP PGRI 35 Serpong</h2>
+                    <p>2013-2016</p>
+                </div>
+
+                <div class="education-template">
+                    <h2>SMK Negeri 1 Tangerang Selatan</h2>
+                    <p>2016-2019</p>
+                </div>
+            </div>
+        </section>
+        <section id="content-4">
+            
+            <div class="interest-title">
+                <h1>Kegemaran Saya</h1>
+                <p>Singkatnya, saya menggemari perkeretaapian</p>
+                <p>Foto selengkapnya di <a target="_blank" href="https://www.instagram.com/ritorushiny">instagram</a> saya</p>
+            </div>
+            
+            <div class="interest-image-container">
+                <img src="Assets/Screenshot 2023-07-23 214131.png" alt="Gambar Kegemaran Anda">
+            </div>
+        </section>
+        <section id="content-5">
+            
+            <div class="awards-title">
+                <h1>Awards</h1>
+            </div>
+            
+            <div class="awards-image-container">
+                <img src="Assets/Screenshot 2023-07-23 215259.png" alt="Gambar Kegemaran Anda">
+            </div>
+        </section>
+    </div>
+
+    <footer>
+        &copy; Copyright 2023 Farij Altafsyah. All Right Reserved
+    </footer>
+</body>
+</html>
